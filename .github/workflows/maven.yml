@@ -49,4 +49,4 @@ jobs:
       - uses: LuisseveN/academy/.github/actions/push_image@main
         with:
           docker_username: ${{ secrets.DOCKERHUB_USERNAME }}
-          tag_name: ${{ env.TAG }}
+          tag_name: $TAG
