@@ -12,5 +12,5 @@ inputs:
 runs:
   using: composite
   steps:
-    - run: docker push ${{ inputs.docker_username }}/academy_repo:$TAG
+    - run: docker push "${{ inputs.docker_username }}/academy_repo:$TAG"
       shell: bash
