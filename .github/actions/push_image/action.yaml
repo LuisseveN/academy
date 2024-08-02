@@ -12,5 +12,5 @@ inputs:
 runs:
   using: composite
   steps:
-    - run: docker tag ${{env.DOCKER_IMAGE_NAME}}:${{env.TAG}} ${{inputs.docker_username}}/${{env.DOCKER_IMAGE_NAME}}:${{env.TAG}}
+    - run: docker image tag $DOCKER_IMAGE_NAME:$TAG ${{inputs.docker_username}}/$DOCKER_IMAGE_NAME:$TAG
       shell: bash
