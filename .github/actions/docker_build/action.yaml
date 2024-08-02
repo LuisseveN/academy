@@ -13,6 +13,10 @@ inputs:
     description: Docker Image Tag Name
     default: ''
     required: false
+  docker_username:
+    description: DockerHub Username
+    default: ''
+    required: false
 runs:
   using: composite
   steps:
@@ -26,7 +30,7 @@ runs:
         echo "DOCKER_IMAGE_NAME=${{inputs.image_name}}" >> $GITHUB_ENV
       shell: bash
     - name: Build Docker Image
-      run: docker build . --file ${{inputs.path_dockerfile}} --tag ${{ secrets.DOCKERHUB_USERNAME }}/academy_repo:$TAG
+      run: docker build . --file ${{inputs.path_dockerfile}} --tag ${{inputs.docker_username}}/academy_repo:$TAG
       shell: bash
     - name: Find Docker Image
       run: docker images | grep $DOCKER_IMAGE_NAME
