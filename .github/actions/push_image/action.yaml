@@ -18,5 +18,5 @@ runs:
   steps:
     - run: docker image tag ${{ inputs.image_name }}:${{ inputs.tag_name }} ${{ inputs.docker_username }}/academy_repo:${{ inputs.tag_name }}
       shell: bash
-    - run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/academy_repo:${{ inputs.tag_name }}
+    - run: docker push ${{ inputs.docker_username }}/academy_repo:${{ inputs.tag_name }}
       shell: bash
