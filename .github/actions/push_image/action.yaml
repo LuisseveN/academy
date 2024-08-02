@@ -9,8 +9,14 @@ inputs:
     description: Docker Image Name
     default: 'academy'
     required: false
+  tag_name:
+    description: Docker Image's Tag
+    default: ''
+    required: false
 runs:
   using: composite
   steps:
-    - run: docker image tag $DOCKER_IMAGE_NAME:$TAG ${{inputs.docker_username}}/$DOCKER_IMAGE_NAME:$TAG
+    - run: |
+        docker image tag ${{inputs.image_name}}:${{inputs.tag_name}} ${{inputs.docker_username}}/${{inputs.image_name}}:${{inputs.tag_name}}
+        docker push ${{inputs.image_name}}:${{inputs.tag_name}}
       shell: bash

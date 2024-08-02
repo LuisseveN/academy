@@ -47,7 +47,6 @@ jobs:
     steps:
       - uses: LuisseveN/academy/.github/actions/push_image@main
         with:
-          docker_username: LuisseveN
-
-
-
+          docker_username: ${{ secrets.DOCKERHUB_USERNAME }}
+          image_name: $DOCKER_IMAGE_NAME
+          tag_name: $TAG
