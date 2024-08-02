@@ -1,0 +1,13 @@
+name: Build
+description: Build application with Maven and create a new Docker image
+inputs:
+  dockerfile_path:
+    description: src/main/docker/Dockerfile.jvm
+    required: false
+    default: Dockerfile.jvm
+runs:
+  using: composite
+  steps:
+    - run: mvn -B package -DskipTests --file pom.xml |
+        echo "Update me with the necessary steps to build the application"
+      shell: bash
