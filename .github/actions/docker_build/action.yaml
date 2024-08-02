@@ -26,7 +26,7 @@ runs:
         echo "DOCKER_IMAGE_NAME=${{inputs.image_name}}" >> $GITHUB_ENV
       shell: bash
     - name: Build Docker Image
-      run: docker build . --file ${{inputs.path_dockerfile}} --tag $DOCKER_IMAGE_NAME:$TAG
+      run: docker build . --file ${{inputs.path_dockerfile}} --tag ${{ secrets.DOCKERHUB_USERNAME }}/academy_repo:$TAG
       shell: bash
     - name: Find Docker Image
       run: docker images | grep $DOCKER_IMAGE_NAME

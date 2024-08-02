@@ -16,7 +16,5 @@ inputs:
 runs:
   using: composite
   steps:
-    - run: docker tag $DOCKER_IMAGE_NAME:$TAG ${{ inputs.docker_username }}/academy_repo:$TAG
-      shell: bash
     - run: docker push ${{ inputs.docker_username }}/academy_repo:$TAG
       shell: bash
